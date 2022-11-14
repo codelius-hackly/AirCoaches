@@ -76,4 +76,8 @@ group :test do
   gem "webdrivers"
 end
 
+# Used for creating the user authentication
 gem "devise"
+
+# Used for Seeding the DB
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
