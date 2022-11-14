@@ -10,9 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_14_065102) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_14_075858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "datetime"
+    t.integer "duration"
+    t.text "comment"
+    t.bigint "coaching_offer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coaching_offer_id"], name: "index_bookings_on_coaching_offer_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "coaching_offers", force: :cascade do |t|
+    t.text "description"
+    t.integer "price"
+    t.string "skill"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_coaching_offers_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,9 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_065102) do
     t.string "first_name"
     t.string "last_name"
     t.text "profile_description"
-    t.string "skills"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "coaching_offers"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "coaching_offers", "users"
 end
