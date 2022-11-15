@@ -1,0 +1,42 @@
+<div class="offer_card">
+  <div class="img_info">
+    <div class="profile_image">
+      <%#= @coaching_offer.user.image  %>
+    </div>
+    <div class="infos">
+      <div class="full_name">
+        <%= @coaching_offer.user.first_name %>
+        <%= @coaching_offer.user.last_name %>
+      </div>
+      <div class="skills">
+        <%= @coaching_offer.skill %>
+      </div>
+      <div class="rating_price">
+        <%#= @coaching_offer.rating %>
+        <%= @coaching_offer.price %>
+      </div>
+    </div>
+  </div>
+  <div class="offer_description">
+    <%#= @coaching_offer.title %>
+    <%= @coaching_offer.description %>
+  </div>
+</div>
+
+    <%#= change to @bookings, datetime, duration, comment %>
+<div class="booking_form">
+  <%= simple_form_for @coaching_offer do |f| %>
+    <div class="form-inputs">
+      <%= f.input :skill %>
+      <%= f.input :skill %>
+   </div>
+
+    <div class="comment_input">
+      <%#= f.input :description %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Book coaching", class: "btn-flat" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+// ************** booking form******************
+
+.booking_form {
+  color: black;
+  border: 2px solid $pri-teal;
+  border-radius: 20px;
+  background-color: $alm-white;
+  width: 315px;
+  height: 400px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: space-between;
+}
+
+.form-inputs {
+  border: 2px solid $pri-salmon;
+  border-radius: 7px;
+  background-color: $alm-white;
+  width: 112px;
+  height: 33px;
+  // display: grid (1fr 1fr);
+  // grid-gap: 15px;
+}
+
+.comment_input {
+  border: 2px solid $pri-salmon;
+  border-radius: 10px;
+  background-color: $alm-white;
+  width: 250px;
+  height: 170px;
+}
