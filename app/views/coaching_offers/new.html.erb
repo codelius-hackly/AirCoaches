@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="my-5 ms-5">Create your offer</h1>
+
+  <div class="create_offer_form">
+    <%= simple_form_for @coaching_offer do |f| %>
+      <%= f.input :skill, collection: ["Ruby", "Rails", "JavaScript", "HTML/CSS", "FrontEnd", "BackEnd"] %>
+      <%#= f.input :title %>
+      <%= f.input :description, as: :text %>
+      <%= f.input :price %>
+      <%# MAYBE change input for :price to range with some JS showing the selected value %>
+        <%#= f.input :data, as: :range, input_html:{ min:"0", max:"45", oninput:"updateTextInput(this.value)"}%>
+        <%# <script>
+        function updateTextInput(val) {
+                  document.getElementById('textInput').value=val;
+                }
+        </script> %>
+      <%= f.submit 'Save offer', class: "a-btn btn-flat" %>
+    <% end %>
+  </div>
+</div>
