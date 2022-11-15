@@ -12,11 +12,11 @@ CoachingOffer.destroy_all
 User.destroy_all
 
 puts "Seeding coaches and offers"
-5.times do
+5.times do |i|
   coach = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
+    email: "email#{i}@gmail.com",
     profile_description: Faker::Lorem.sentence(word_count: 15),
     password: "123456"
   )
