@@ -1,17 +1,19 @@
 .btn-ghost {
   color: $pri-salmon;
   border: 1px solid $pri-salmon;
-  background: $sec-salmon;
+  background: $alm-white;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: normal;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  font-family: $h3-font;
 }
 
 .btn-ghost:hover {
   opacity: 1;
-  background: $alm-white;
+  color: $pri-salmon;
+  background: $sec-salmon;
 }
 
 .btn-flat {
@@ -21,6 +23,7 @@
   background: $pri-teal;
   transition: background 0.3s ease;
   font-weight: stronger;
+  font-family: $h3-font;
 }
 
 .btn-flat:hover {
@@ -28,6 +31,6 @@
   color: white;
 }
 
-.a-button {
+.a-btn {
   text-decoration: none;
 }
