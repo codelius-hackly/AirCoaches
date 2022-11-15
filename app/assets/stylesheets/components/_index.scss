@@ -7,3 +7,24 @@
 @import "form";
 @import "cards";
 
+// ********************* show page ***********************
+
+.show-content {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px 0;
+  margin-right: 0;
+}
+
+.offers-heading {
+  text-align: center;
+  margin: 40px 0;
+}
+
+// *********** delete when not needed / show - profile image ***
+.image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: darkorchid;
+}

@@ -1,7 +1,75 @@
 // ******************* Card offer ************************
 
 .offer_card {
-  color: black;
+  background-color: $sec-salmon;
+  // border: 3px solid darkmagenta;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  // flex-grow: 2;
+
+}
+
+.img_info {
+  // border: 2px solid green;
+  margin: 15px;
+  height: 150px;
+  display: flex;
+  justify-content: space-around;
+  // align-items: stretch;
+}
+
+.infos {
+  // border: 2px solid red;
+  width: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.full-name {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: $h3-font;
+  color: $sec-teal;
+}
+
+.skills {
+  font-family: $headers-font;
+  color: $sec-teal;
+  font-weight: bold;
+  background-color: $alm-white;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.rating_price {
+  display: flex;
+  justify-content: space-between;
+  color: $sec-teal;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.offer_description {
+  // border: 2px solid rgb(38, 150, 175);
+  margin: 0 25px 25px 25px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: $alm-white;
+  padding: 10px;
+}
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 3px solid darkgreen;
+  width: 200px;
 }
 
 // ******************* Card trip ************************
