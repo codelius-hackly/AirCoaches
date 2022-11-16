@@ -46,3 +46,29 @@
   border-radius: 20px;
   padding: 50px;
 }
+
+// **************** sign up form ****************
+
+.sign-up-form {
+  background-color: $sec-salmon;
+  border-radius: 20px;
+  padding: 50px;
+  width: 400px;
+}
+
+.sign-up-header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: $h3-font;
+  color: $sec-teal;
+}
+
+.sign-up-btn {
+  text-align: center;
+}
+
+.login-btn-in-signup {
+  color:red;
+}
