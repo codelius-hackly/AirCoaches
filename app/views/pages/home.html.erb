@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1528901166007-3784c7dd3653?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80);">
   <div class="container">
-    <h1>We find your <strong>coding coach</strong>.</h1>
+    <h1>We find your coding <span data-controller="typed-js"></span></h1>
     <p>Get help, learn faster and finish your projects today!</p>
-    <a class="btn btn-flat" href="#">Get started</a>
+    <%= link_to "Get started", new_user_registration_path, class: "btn btn-flat" %>
   </div>
 </div>
 
