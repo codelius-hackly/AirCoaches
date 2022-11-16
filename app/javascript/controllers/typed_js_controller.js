@@ -13,7 +13,7 @@ export default class extends Controller {
           '<strong>unicorn 🦄</strong>',
           '<strong>hacker! </strong>',
           '<strong>saviour 🛟</strong>',
-          '<strong>yoda!</strong>',
+          '<strong>Yoda!</strong>',
           '<strong>fairy 🧚🏻‍♀️</strong>',
           '<strong>grandma?!?</strong>',
           '<strong>dragon 🐲</strong>'
