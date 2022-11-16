@@ -11,42 +11,33 @@
     <h2> Current offers from our coaches:</h2>
   </div>
 
-  <%# TODO: The displaying of the cards should be a .each do statemente with the cards WITH THE CARDS WE HAVE %>
   <div class="grid">
-    <div class="card-trip">
-      <img src="https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Your FrontEnd Master</h2>
-          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
-        </div>
-        <h2 class="card-trip-pricing">$25.99/h</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-      <img src="https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Your FrontEnd Master</h2>
-          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
-        </div>
-        <h2 class="card-trip-pricing">$25.99/h</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-      <img src="https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Your FrontEnd Master</h2>
-          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
-        </div>
-        <h2 class="card-trip-pricing">$25.99/h</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
+    <%# TODO: The displaying of the cards should be a .each do statemente with the cards WITH THE CARDS WE HAVE %>
+      <% @coaching_offers.each do |offer| %>
+        <%= link_to coaching_offer_path(offer), class: "text-decoration-none" do %>
+          <div class="card-trip">
+                <img src="https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg" />
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= offer.title %></h2>
+                    <p><%= offer.description %></p>
+                  </div>
+                  <h2 class="card-trip-pricing"> $<%= offer.price %>/h</h2>
+                  <%= cl_image_tag offer.user.profile_pic.key, class: "card-trip-user avatar-bordered" %>
+                </div>
+              </div>
+        <% end %>
+      <% end %>
   </div>
+    <%# <div class="card-trip">
+      <img src="https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>Your FrontEnd Master</h2>
+          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
+        </div>
+        <h2 class="card-trip-pricing">$25.99/h</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+    </div> %>
 </div>
