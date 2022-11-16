@@ -21,6 +21,6 @@ class CoachingOffersController < ApplicationController
   private
 
   def coaching_offer_params
-    params.require(:coaching_offer).permit(:skill, :description, :price)
+    params.require(:coaching_offer).permit(:skill, :description, :price, :title, :rating)
   end
 end
