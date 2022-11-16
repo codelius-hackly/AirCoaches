@@ -2,9 +2,7 @@
   <div class="offer_card">
     <div class="img_info">
       <div class="profile-image">
-        <div class="image">
-        </div>
-        <%#= @coaching_offer.user.image  %>
+        <%= cl_image_tag @coaching_offer.user.profile_pic.key %>
       </div>
       <div class="infos">
         <div class="full-name">
@@ -17,8 +15,7 @@
         </div>
         <div class="rating_price">
           <div class="rating">
-            <%#= @coaching_offer.rating %>
-            rating****
+            Rating: <%= @coaching_offer.rating %>
           </div>
           <div class="price-offer">
             $<%= @coaching_offer.price %>/h
@@ -27,12 +24,12 @@
       </div>
     </div>
     <div class="offer_description">
-      <%#= @coaching_offer.title %>
+      <%= @coaching_offer.title %>
+      <br>
       <%= @coaching_offer.description %>
     </div>
   </div>
 
-      <%#= change to @bookings, datetime, duration, comment %>
   <div class="booking-form">
     <div class="booking-form-heading">
       Book coaching now!
