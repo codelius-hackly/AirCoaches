@@ -12,13 +12,16 @@
 .show-content {
   display: flex;
   justify-content: space-evenly;
-  margin: 15px 0;
-  margin-right: 0;
+  margin: 15px auto;
 }
 
 .offers-heading {
   text-align: center;
   margin: 40px 0;
+}
+
+.other-offers {
+  margin-bottom: 30px;
 }
 
 // *********** delete when not needed / show - profile image ***

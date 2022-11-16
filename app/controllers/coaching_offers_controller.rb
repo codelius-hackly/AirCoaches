@@ -1,6 +1,7 @@
 class CoachingOffersController < ApplicationController
   def show
     @coaching_offer = CoachingOffer.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
