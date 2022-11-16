@@ -2,32 +2,26 @@
 
 .offer_card {
   background-color: $sec-salmon;
-  // border: 3px solid darkmagenta;
   width: 700px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  // flex-grow: 2;
-
+  border: 3px solid $pri-salmon;
 }
 
 .img_info {
-  // border: 2px solid green;
   margin: 15px;
   height: 150px;
   display: flex;
   justify-content: space-around;
-  // align-items: stretch;
 }
 
 .infos {
-  // border: 2px solid red;
   width: 400px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
 
 .full-name {
@@ -56,7 +50,6 @@
 }
 
 .offer_description {
-  // border: 2px solid rgb(38, 150, 175);
   margin: 0 25px 25px 25px;
   height: 200px;
   border-radius: 10px;
@@ -68,7 +61,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // border: 3px solid darkgreen;
   width: 200px;
 }
 
@@ -80,7 +72,6 @@
   padding: 24px;
   background-color: $sec-salmon;
   border-radius: 20px;
-  border-width: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
