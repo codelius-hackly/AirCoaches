@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @bookings = Booking.all
+    @coaching_offers = CoachingOffer.all
   end
 end
