@@ -2,9 +2,7 @@
   <div class="offer_card">
     <div class="img_info">
       <div class="profile-image">
-        <div class="image">
-        </div>
-        <%#= @coaching_offer.user.image  %>
+        <%= cl_image_tag @coaching_offer.user.profile_pic.key %>
       </div>
       <div class="infos">
         <div class="full-name">
@@ -17,8 +15,7 @@
         </div>
         <div class="rating_price">
           <div class="rating">
-            <%#= @coaching_offer.rating %>
-            rating****
+            Rating: <%= @coaching_offer.rating %>
           </div>
           <div class="price-offer">
             $<%= @coaching_offer.price %>/h
@@ -27,12 +24,12 @@
       </div>
     </div>
     <div class="offer_description">
-      <%#= @coaching_offer.title %>
+      <%= @coaching_offer.title %>
+      <br>
       <%= @coaching_offer.description %>
     </div>
   </div>
 
-      <%#= change to @bookings, datetime, duration, comment %>
   <div class="booking-form">
     <div class="booking-form-heading">
       Book coaching now!
@@ -58,7 +55,7 @@
 
 <div class="grid container other-offers">
     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <img src="https://th-thumbnailer.cdn-si-edu.com/4Nq8HbTKgX6djk07DqHqRsRuFq0=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/d5/24/d5243019-e0fc-4b3c-8cdb-48e22f38bff2/istock-183380744.jpg" />
       <div class="card-trip-infos">
         <div>
           <h2>Your FrontEnd Master</h2>
@@ -68,19 +65,10 @@
       </div>
     </div>
 
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Your FrontEnd Master</h2>
-          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
-        </div>
-        <h2 class="card-trip-pricing">$25.99 /h</h2>
-      </div>
-    </div>
+
 
     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <img src="https://graphicriver.img.customer.envatousercontent.com/files/401561418/preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=590&s=a37fca4d69e63eeb6d3d023a57e6c30f" />
       <div class="card-trip-infos">
         <div>
           <h2>Your FrontEnd Master</h2>

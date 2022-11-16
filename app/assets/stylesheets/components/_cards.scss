@@ -61,8 +61,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
 }
+
+.profile-image > img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.offer_description:first-line {
+  font-family: $headers-font;
+  color: $sec-teal;
+  font-weight: bold;
+}
+
+
 
 // ******************* Card trip ************************
 
