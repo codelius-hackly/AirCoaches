@@ -7,19 +7,19 @@ export default class extends Controller {
     console.log("hi from the controller");
       var typed3 = new Typed(this.element, {
         strings: [
-          '<strong>coach.</strong>',
-          '<strong>guru 😇</strong>',
-          '<strong>goddess?</strong>',
-          '<strong>unicorn 🦄</strong>',
-          '<strong>hacker! </strong>',
-          '<strong>saviour 🛟</strong>',
-          '<strong>Yoda!</strong>',
-          '<strong>fairy 🧚🏻‍♀️</strong>',
-          '<strong>grandma?!?</strong>',
-          '<strong>dragon 🐲</strong>'
+          'We find your coding <strong>coach.</strong>',
+          'We find your coding <strong>guru 😇</strong>',
+          'We find your coding <strong>hacker! </strong>',
+          'We find your coding <strong>unicorn 🦄</strong>',
+          'We find your coding <strong>goddess?</strong>',
+          'We find your coding <strong>saviour 🛟</strong>',
+          'We find your coding <strong>Yoda!</strong>',
+          'We find your coding <strong>fairy 🧚🏻‍♀️</strong>',
+          'We find your coding <strong>grandma?!?</strong>',
+          'We find your coding <strong>dragon 🐲</strong>'
         ],
         typeSpeed: 50,
-        backSpeed: 0,
+        backSpeed: 30,
         smartBackspace: true, // this is a default
         loop: true
     })
