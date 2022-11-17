@@ -2,6 +2,7 @@ class CoachingOffersController < ApplicationController
   def show
     @coaching_offer = CoachingOffer.find(params[:id])
     @booking = Booking.new
+    @offer_reviews = @coaching_offer.bookings.extract_associated(:reviews).first
   end
 
   def new
