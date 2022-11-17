@@ -1,22 +1,36 @@
 
-<div class="container">
+<div class="container mt-5">
   <h1>Hello, <%= current_user.first_name %>! </h1>
 
-  <h2>Pending requests</h2>
-  <% if @bookings == [] %>
-    <p>You have no pending requests!</p>
-  <% else %>
-    <% @bookings.each do | booking | %>
-      <%= booking.datetime %>
-      <%= booking.duration %>
-      <%= booking.user.first_name %>
-      <%= booking.user.last_name %>
-      <%= booking.coaching_offer.title %>
-      <%= booking.coaching_offer.skill %>
-    <% end %>
-  <% end %>
+  <h2 class="mt-5">Your pending requests:</h2>
 
-  <h2>Your past bookings</h2>
+  <div class="mt-5">
+    <% if @bookings == [] %>
+      <p>You have no pending requests!</p>
+    <% else %>
+      <% @bookings.each do | booking | %>
+        <div class="card-product">
+          <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
+          <div class="card-product-infos flex-grow-1">
+            <h2>Date: <%= booking.datetime %></h2>
+            <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
+            <p><strong>Potential Earnings:</strong>  US$ <%= booking.duration * booking.coaching_offer.price %>.00</p>
+            <p><strong>Request from: </strong><%= booking.coaching_offer.user.first_name %> <%=booking.user.last_name%></p>
+            <p><strong>Offer Ref: </strong><%= booking.coaching_offer.title %></p>
+            <p><strong>Skill: </strong><%= booking.coaching_offer.skill %></p>
+            <div class="flex-grow-1 text-end">
+              <%= link_to "Reject Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+              <%= link_to "Accept Request", dashboard_path, class: "btn-flat a-btn ms-2" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="mt-5">
+    <h2>Your past bookings:</h2>
 
   <%# @bookings.each do |booking| %>
+  </div>
 </div>

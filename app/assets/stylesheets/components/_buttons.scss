@@ -3,7 +3,7 @@
   border: 1px solid $pri-salmon;
   background: $alm-white;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 10px;
   font-weight: normal;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -19,7 +19,7 @@
 .btn-flat {
   color: white;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 10px;
   border: 0px;
   background: $pri-teal;
   transition: background 0.3s ease;
