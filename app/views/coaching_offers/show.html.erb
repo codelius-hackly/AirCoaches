@@ -15,7 +15,9 @@
         </div>
         <div class="rating_price">
           <div class="rating">
-            Rating: <%= @coaching_offer.rating %>
+            <% @coaching_offer.average_rating.floor.times do %>
+              <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+            <% end %>
           </div>
           <div class="price-offer">
             $<%= @coaching_offer.price %>/h
