@@ -4,17 +4,23 @@
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <li class="nav-item ms-3">
+          <%= form_with url: coaching_offers_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+              placeholder: "Find a coaching..."
+              %>
+              <%= submit_tag "Search", class: "btn btn-ghost" %>
+          <% end %>
+        </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Book a coach!", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item ms-3 dropdown">
             <% if current_user.profile_pic.attached? %>
               <%= cl_image_tag current_user.profile_pic.key, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
@@ -28,14 +34,15 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Sign up", new_user_registration_path, class: "a-btn btn-ghost" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Log in", new_user_session_path, class: "a-btn btn-flat" %>
+          <li class="nav-item ms-3">
+            <%= link_to "Get started", new_user_registration_path, class: "btn btn-ghost" %>
           </li>
         <% end %>
       </ul>
     </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </div>
 </div>

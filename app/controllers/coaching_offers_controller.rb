@@ -1,6 +1,11 @@
 class CoachingOffersController < ApplicationController
   def index
-    @coaching_offers = CoachingOffer.all
+    query = params[:query]
+    if query.present?
+      @coaching_offers = CoachingOffer.search_by_title_description_skill(query)
+    else
+      @coaching_offers = CoachingOffer.all
+    end
   end
 
   def show

@@ -2,7 +2,11 @@
   <div class="container">
     <h1><span data-controller="typed-js"></span></h1>
     <p>Get help, learn faster and finish your projects today!</p>
-    <%= link_to "Get started", new_user_registration_path, class: "btn btn-flat" %>
+    <% if user_signed_in? %>
+      <%= link_to "Get started", dashboard_path, class: "btn btn-flat" %>
+    <% else %>
+      <%= link_to "Get started", new_user_registration_path, class: "btn btn-flat" %>
+    <% end %>
   </div>
 </div>
 
