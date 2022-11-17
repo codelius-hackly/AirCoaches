@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @coaching_offer = CoachingOffer.find(params[:coaching_offer_id])
     @booking.coaching_offer = @coaching_offer
     if @booking.save
-      redirect_to booking_path(@booking), notice: "yeaaaayyyyyy"
+      redirect_to booking_path(@booking), notice: "Yeaaaayyyyyy"
     else
       render "coaching_offers/show", status: :unprocessable_entity
     end
