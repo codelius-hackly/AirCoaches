@@ -5,5 +5,5 @@ class CoachingOffer < ApplicationRecord
   validates :description, length: { minimum: 30 }
   validates :price, presence: true
   validates :user, presence: true
-  validates :skill, inclusion: { in: ["Ruby", "Rails", "JavaScript", "HTML/CSS", "FrontEnd", "BackEnd"] }
+  validates :skill, inclusion: { in: ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "FrontEnd", "BackEnd", "Python", "PHP"] }
 end

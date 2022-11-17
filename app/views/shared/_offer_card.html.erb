@@ -1,0 +1,13 @@
+<%= link_to coaching_offer_path(offer), class: "text-decoration-none" do %>
+  <div class="card-trip">
+    <%= image_tag "skills/#{offer.skill}.png", alt: "#{offer.skill} Logo" %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= offer.title %></h2>
+        <p><%= offer.description %></p>
+      </div>
+      <h2 class="card-trip-pricing"> $<%= offer.price %>/h</h2>
+      <%= cl_image_tag offer.user.profile_pic.key, class: "card-trip-user avatar-bordered" %>
+    </div>
+  </div>
+<% end %>

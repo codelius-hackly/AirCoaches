@@ -30,7 +30,7 @@ puts "Seeding coaches and offers"
   puts "#{coach.first_name} #{coach.last_name} seeded"
   puts "Seeding 3 offers for #{coach.first_name} #{coach.last_name}"
   3.times do
-    skill = ["Ruby", "Rails", "JavaScript", "HTML/CSS", "FrontEnd", "BackEnd"].sample
+    skill = ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "FrontEnd", "BackEnd", "Python", "PHP"].sample
     offer = CoachingOffer.new(
       description: Faker::Lorem.sentence(word_count: 10),
       price: rand(50...100),
