@@ -2,11 +2,12 @@
 
 .offer_card {
   background-color: $sec-salmon;
-  width: 700px;
+  width: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   border: 3px solid $pri-salmon;
+  margin-right: 20px;
 }
 
 .img_info {
@@ -131,3 +132,56 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 60px;
 }
+
+.card-review {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  background-color: $sec-salmon;
+  border-radius: 20px;
+  border: 3px solid $pri-salmon;
+}
+
+.card-review > img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.star-rating {
+  height: 15px !important;
+  width: 15px;
+}
+
+.review-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin: 50px 0px;
+}
+
+.card-review h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-review p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-review .card-review-infos {
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+

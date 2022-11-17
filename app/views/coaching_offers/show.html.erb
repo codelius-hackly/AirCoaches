@@ -16,7 +16,9 @@
         </div>
         <div class="rating_price">
           <div class="rating">
-            Rating: <%= @coaching_offer.rating %>
+            <% @coaching_offer.average_rating.floor.times do %>
+              <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+            <% end %>
           </div>
           <div class="price-offer">
             $<%= @coaching_offer.price %>/h
@@ -61,5 +63,32 @@
     <% @coaching_offers.each do |offer| %>
       <%= render "shared/offer_card", offer: offer %>
     <% end %>
+  </div>
+
+<div class="container show-content">
+  <h2>Reviews of this course</h2>
+</div>
+<div class="container">
+
+  <div class="reviews-wrapper">
+    <div class="review-cards">
+      <% @offer_reviews.each do |review|%>
+        <div class="card-review">
+          <%= image_tag review.booking.user.profile_pic, alt: "alttext" %>
+          <div class="card-review-infos">
+            <div>
+              <h2><%= review.title %></h2>
+              <p><%= review.description %></p>
+              <small> <%= review.booking.user.first_name %></small>
+            </div>
+            <div class="ratings">
+              <% review.rating.times do %>
+                <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
