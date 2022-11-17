@@ -8,7 +8,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Destroying existing Data..."
-# TODO: Implement ActiveStorage purge for cloudinary images for every db
+ActiveStorage::Attachment.all.each(&:purge)
 Booking.destroy_all
 CoachingOffer.destroy_all
 User.destroy_all
