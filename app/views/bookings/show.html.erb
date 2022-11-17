@@ -1,5 +1,18 @@
-<h1>Your booking was succsessfull</h1>
+<div class="container container-conf">
+  <div class="confirmation-info">
+    <div class="confirmation-text">
+      <h1>Help is on the way! 🎉🎉</h1>
+      <p>We have received your booking request and will let you know once the coach has accepted.</p>
+    </div>
 
-<h3>This is a button: Go to the offer</h3>
-<h3>This is a button: Go to your bookings</h3>
-<h3>This is a button: Homepage</h3>
+    <div class="confirm-buttons">
+      <%= link_to "View your bookings", coaching_offer_path, class: "btn btn-ghost" %>
+      <br>
+      <%= link_to "Back to the offer", coaching_offer_path, class: "btn btn-ghost" %>
+    </div>
+  </div>
+
+  <div class="confirmation-img">
+    <%= image_tag "illustrations/undraw_team_up_re_84ok.svg", alt: "text", class: "image-confirmation"%>
+  </div>
+</div>

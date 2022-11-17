@@ -7,7 +7,7 @@ class CoachingOffersController < ApplicationController
     @coaching_offer = CoachingOffer.find(params[:id])
     @coaching_offers = CoachingOffer.where(user: @coaching_offer.user).excluding(@coaching_offer)
     @booking = Booking.new
-    @offer_reviews = @coaching_offer.offer_reviews
+    @offer_reviews = @coaching_offer.reviews
   end
 
   def new
