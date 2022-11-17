@@ -1,4 +1,11 @@
 class CoachingOffer < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_title_description_skill,
+  against: [ :title, :description, :skill ],
+  using: {
+    tsearch: { prefix: true }
+  }
+
   belongs_to :user
   has_many :bookings, dependent: :destroy
 
