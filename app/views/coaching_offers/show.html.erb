@@ -2,6 +2,7 @@
   <div class="offer_card">
     <div class="img_info">
       <div class="profile-image">
+      <%# ADD HEIGHT AND WIDTH TO PROFILE PIC %>
         <%= cl_image_tag @coaching_offer.user.profile_pic.key %>
       </div>
       <div class="infos">
@@ -15,7 +16,9 @@
         </div>
         <div class="rating_price">
           <div class="rating">
-            Rating: <%= @coaching_offer.rating %>
+            <% @coaching_offer.average_rating.floor.times do %>
+              <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+            <% end %>
           </div>
           <div class="price-offer">
             $<%= @coaching_offer.price %>/h
@@ -51,30 +54,41 @@
   </div>
 </div>
 
-<h2 class="offers-heading">Other offers from this coach:</h2>
+<div class="container">
+  <div class="my-5">
+    <h2> Other offers from <strong><%= @coaching_offer.user.first_name %> <%= @coaching_offer.user.last_name %></strong>:</h2>
+  </div>
 
-<div class="grid container other-offers">
-    <div class="card-trip">
-      <img src="https://th-thumbnailer.cdn-si-edu.com/4Nq8HbTKgX6djk07DqHqRsRuFq0=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/d5/24/d5243019-e0fc-4b3c-8cdb-48e22f38bff2/istock-183380744.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Your FrontEnd Master</h2>
-          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
+  <div class="grid">
+    <% @coaching_offers.each do |offer| %>
+      <%= render "shared/offer_card", offer: offer %>
+    <% end %>
+  </div>
+
+<div class="container show-content">
+  <h2>Reviews of this course</h2>
+</div>
+<div class="container">
+
+  <div class="reviews-wrapper">
+    <div class="review-cards">
+      <% @offer_reviews.each do |review|%>
+        <div class="card-review">
+          <%= image_tag review.booking.user.profile_pic, alt: "alttext" %>
+          <div class="card-review-infos">
+            <div>
+              <h2><%= review.title %></h2>
+              <p><%= review.description %></p>
+              <small> <%= review.booking.user.first_name %></small>
+            </div>
+            <div class="ratings">
+              <% review.rating.times do %>
+                <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <h2 class="card-trip-pricing">$25.99 /h</h2>
-      </div>
-    </div>
-
-
-
-    <div class="card-trip">
-      <img src="https://graphicriver.img.customer.envatousercontent.com/files/401561418/preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=590&s=a37fca4d69e63eeb6d3d023a57e6c30f" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Your FrontEnd Master</h2>
-          <p>Struggling with CSS, Javascript and HTML? I can help!</p>
-        </div>
-        <h2 class="card-trip-pricing">$25.99 /h</h2>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
