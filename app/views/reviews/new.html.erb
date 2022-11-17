@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="my-5 ms-5">Create a new review for <%= @coaching_offer.title %> </h1>
+    <div class="create_offer_form">
+    <%= simple_form_for [@booking, @review] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :rating %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
