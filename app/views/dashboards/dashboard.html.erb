@@ -1,0 +1,22 @@
+
+<div class="container">
+  <h1>Hello, <%= current_user.first_name %>! </h1>
+
+  <h2>Pending requests</h2>
+  <% if @bookings == [] %>
+    <p>You have no pending requests!</p>
+  <% else %>
+    <% @bookings.each do | booking | %>
+      <%= booking.datetime %>
+      <%= booking.duration %>
+      <%= booking.user.first_name %>
+      <%= booking.user.last_name %>
+      <%= booking.coaching_offer.title %>
+      <%= booking.coaching_offer.skill %>
+    <% end %>
+  <% end %>
+
+  <h2>Your past bookings</h2>
+
+  <%# @bookings.each do |booking| %>
+</div>
