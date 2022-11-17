@@ -4,4 +4,6 @@ class Booking < ApplicationRecord
 
   validates :datetime, presence: true
   # validates :datetime TO BE only possible for "tomorrow"
+  validates :duration, presence: true
+
 end
