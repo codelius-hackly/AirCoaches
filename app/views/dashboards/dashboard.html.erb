@@ -1,24 +1,36 @@
-
-<div class="container">
+<div class="container mt-5">
   <h1>Hello, <%= current_user.first_name %>! </h1>
 
-  <h2>Pending requests</h2>
-  <% if @bookings == [] %>
-    <p>You have no pending requests!</p>
-  <% else %>
-    <% @bookings.each do | booking | %>
-      <%= booking.datetime %>
-      <%= booking.duration %>
-      <%= booking.user.first_name %>
-      <%= booking.user.last_name %>
-      <%= booking.coaching_offer.title %>
-      <%= booking.coaching_offer.skill %>
-    <% end %>
-  <% end %>
+  <h2 class="mt-5">Your pending requests:</h2>
 
-  <h2>Your past bookings</h2>
+  <div class="mt-5">
+    <% if @bookings == [] %>
+      <p>You have no pending requests!</p>
+    <% else %>
+      <% @bookings.each do | booking | %>
+        <div class="card-product">
+          <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
+          <div class="card-product-infos flex-grow-1">
+            <p><strong>Date: <%= booking.datetime %></strong></p>
+            <p><strong>Offer: </strong><%= booking.coaching_offer.title %></p>
+            <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
+            <p><strong>Couch name: </strong><%= booking.coaching_offer.user.first_name %> <%=booking.coaching_offer.user.last_name%></p>
+            <p><strong>Skill: </strong><%= booking.coaching_offer.skill %></p>
+            <p><strong>Comment: </strong><%= booking.comment %></p>
+
+            <div class="flex-grow-1 text-end">
+              <%= link_to "Edit Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+              <%= link_to "Delete Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="mt-5">
+    <h2>Your past bookings:</h2>
 
   <%# @bookings.each do |booking| %>
+  </div>
 </div>
-
-<hr>
