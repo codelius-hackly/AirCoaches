@@ -4,4 +4,6 @@ class Booking < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :datetime, presence: true
   # validates :datetime TO BE only possible for "tomorrow"
+  validates :duration, presence: true
+
 end
