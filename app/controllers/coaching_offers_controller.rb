@@ -1,6 +1,12 @@
 class CoachingOffersController < ApplicationController
+  def index
+    @coaching_offers = CoachingOffer.all
+  end
+
   def show
     @coaching_offer = CoachingOffer.find(params[:id])
+    # TODO: filter out "current offer" form @coaching_offers
+    @coaching_offers = CoachingOffer.where(user: @coaching_offer.user)
     @booking = Booking.new
   end
 

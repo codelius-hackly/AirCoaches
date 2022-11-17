@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="my-5">
+    <h2> Current offers from our coaches:</h2>
+  </div>
+
+  <div class="grid">
+    <% @coaching_offers.each do |offer| %>
+      <%= render "shared/offer_card", offer: offer %>
+    <% end %>
+  </div>
+</div>
