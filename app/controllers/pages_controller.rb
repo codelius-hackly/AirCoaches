@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @bookings = Booking.all
-    @coaching_offers = CoachingOffer.all
+    # TODO: make another selection of offers to show on homepage
+    @coaching_offers = CoachingOffer.where(rating: (4..5))
   end
 end
