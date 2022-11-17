@@ -5,8 +5,7 @@ class CoachingOffersController < ApplicationController
 
   def show
     @coaching_offer = CoachingOffer.find(params[:id])
-    # TODO: filter out "current offer" form @coaching_offers
-    @coaching_offers = CoachingOffer.where(user: @coaching_offer.user)
+    @coaching_offers = CoachingOffer.where(user: @coaching_offer.user).excluding(@coaching_offer)
     @booking = Booking.new
   end
 
