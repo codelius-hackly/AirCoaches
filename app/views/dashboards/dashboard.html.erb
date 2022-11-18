@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <h2>Your Dashboard, <%= current_user.first_name %>!</h2>
+  <h2>Your Dashboard, <%= current_user.first_name %></h2>
 
   <nav class="mt-5">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -41,8 +41,8 @@
           </div>
         </div>
       <% else %>
-      <h3>You have no requests!</h3>
-      <%= link_to "Create a Coaching Offer", new_coaching_offer_path, class: "btn-flat a-btn ms-2" %>
+      <h3 class="mt-5 mb-5 text-center">You have no coaching requests!</h3>
+      <span class="d-grid gap-2 col-3 mx-auto"><%= link_to "Create a Coaching Offer", new_coaching_offer_path, class: "btn-flat a-btn ms-2 text-center" %></span>
       <% end %>
     </div>
 
@@ -78,8 +78,8 @@
           </div>
         </div>
       <% else %>
-      <h3>You have no requests!</h3>
-        <%= link_to "Book a coach", coaching_offers_path, class: "btn-flat a-btn ms-2" %>
+      <h3 class="mt-5 mb-5 text-center">You haven't booked a coach!</h3>
+        <span class="d-grid gap-2 col-3 mx-auto"><%= link_to "Book a coach", coaching_offers_path, class: "btn-flat a-btn ms-2 text-center" %></span>
       <% end %>
     </div>
   </div>
