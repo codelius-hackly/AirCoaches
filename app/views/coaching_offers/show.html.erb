@@ -3,9 +3,11 @@
   <div class="show-content">
 
     <div class="offer_card">
-      <div class="img_info">
+      <div class="img_info my-3">
+        <div class="skill-image">
+          <%= image_tag "skills/#{@coaching_offer.skill}.png", alt: "#{@coaching_offer.skill} Logo" %>
+        </div>
         <div class="profile-image">
-        <%# ADD HEIGHT AND WIDTH TO PROFILE PIC %>
           <%= cl_image_tag @coaching_offer.user.profile_pic.key %>
         </div>
         <div class="infos">
@@ -14,12 +16,12 @@
             <%= @coaching_offer.user.last_name %>
           </div>
           <div class="skills">
-            Skills:
+            Skill:
             <%= @coaching_offer.skill %>
           </div>
           <div class="rating_price">
             <div class="rating">
-              <% @coaching_offer.average_rating.floor.times do %>
+              <% @coaching_offer.rating.floor.times do %>
                 <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
               <% end %>
             </div>
@@ -69,30 +71,30 @@
     <% end %>
   </div>
 
-<div class="container show-content">
-  <h2>Reviews of this course</h2>
-</div>
-<div class="container">
-
-  <div class="reviews-wrapper">
-    <div class="review-cards">
-      <% @offer_reviews.each do |review|%>
-        <div class="card-review">
-          <%= image_tag review.booking.user.profile_pic, alt: "alttext" %>
-          <div class="card-review-infos">
-            <div>
-              <h2><%= review.title %></h2>
-              <p><%= review.description %></p>
-              <small> <%= review.booking.user.first_name %></small>
-            </div>
-            <div class="ratings">
-              <% review.rating.times do %>
-                <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
-              <% end %>
+  <% unless @coaching_offer.reviews.blank? %>
+    <div class="container show-content my-5">
+      <h2>Reviews of this course</h2>
+    </div>
+    <div class="reviews-wrapper">
+      <div class="review-cards">
+        <% @offer_reviews.each do |review|%>
+          <div class="card-review">
+            <%= image_tag review.booking.user.profile_pic, alt: "alttext" %>
+            <div class="card-review-infos">
+              <div>
+                <h2><%= review.title %></h2>
+                <p><%= review.description %></p>
+                <small> <%= review.booking.user.first_name %></small>
+              </div>
+              <div class="ratings">
+                <% review.rating.times do %>
+                  <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
