@@ -20,16 +20,16 @@
 
 .search-navbar {
   input {
-    border-radius: 50px 0px 0px 50px;
+    border-radius: 10px 0px 0px 10px;
   }
   .btn-ghost {
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 0px 10px 10px 0px;
   }
 }
 
 .nav-item img {
   &:hover {
     outline: 1px solid $pri-teal;
-    outline-offset: -10px;
+    outline-offset: -8px;
   }
 }
