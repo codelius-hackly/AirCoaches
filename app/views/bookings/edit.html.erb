@@ -1,0 +1,26 @@
+
+<div class="grid-edit-booking">
+  <div class="edit-booking-form container">
+    <div class="edit-booking-form-heading container">
+      Edit your booking:
+    </div>
+    <%= simple_form_for @booking do |f| %>
+      <div>
+        <%= f.input :datetime, as: :datetime, html5: true, label: "Pick up a date and time", input_html:{ class: "edit-booking-form-inputs"}%>
+        <%= f.input :duration, label: "How many hours do you need?", input_html:{ class: "edit-booking-form-inputs"}%>
+      </div>
+
+      <div>
+        <%= f.input :comment, input_html:{ class: "edit-booking-comment-input"} %>
+      </div>
+
+      <div class="booking-form-actions">
+        <%= f.submit "save changes", class: "btn-salmon" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="confirmation-img">
+    <%= image_tag "illustrations/undraw_content_team_re_6rlg.svg", alt: "text", class: "image-edit-booking"%>
+  </div>
+</div>
