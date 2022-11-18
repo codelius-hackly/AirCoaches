@@ -1,72 +1,93 @@
 <div class="container mt-5">
-  <h1>Hello, <%= current_user.first_name %>! </h1>
+  <h2>Your Dashboard, <%= current_user.first_name %>!</h2>
 
-  <% if @coach_bookings.empty? == false %>
-
-    <div class="pending-req-coach-perspective">
-      <h2 class="mt-5">Your pending requests from coachees:</h2>
-      <div class="mt-5">
-        <% if @coach_bookings.empty? %>
-          <p>You have no pending requests to accept!</p>
-        <% else %>
-          <% @coach_bookings.each do | booking | %>
-            <div class="card-product">
-              <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
-              <div class="card-product-infos flex-grow-1">
-                <h2>Date: <%= booking.datetime %></h2>
-                <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
-                <p><strong>Potential Earnings:</strong>  US$ <%= booking.duration * booking.coaching_offer.price %>.00</p>
-                <p><strong>Request from: </strong><%= booking.user.first_name %> <%=booking.user.last_name%></p>
-                <p><strong>Offer Ref: </strong><%= booking.coaching_offer.title %></p>
-                <p><strong>Skill: </strong><%= booking.coaching_offer.skill %></p>
-                <div class="flex-grow-1 text-end">
-                  <%= link_to "✉️", booking.coaching_offer.user.email, class: "btn-ghost a-btn ms-2" %>
-                  <%= link_to "Reject Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
-                  <%= link_to "Accept Request", dashboard_path, class: "btn-flat a-btn ms-2" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+  <nav class="mt-5">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Coach View</button>
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Coachee View</button>
     </div>
-  <% end %>
+  </nav>
 
-  <% if @coachee_bookings.empty? == false %>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+      <% if @coach_bookings.empty? == false %>
 
-    <div class="pending-req-student-perspective">
-      <h2 class="mt-5">Your pending bookings with a coach:</h2>
-      <div class="mt-5">
-        <% if @coachee_bookings == [] %>
-          <p>You haven't booked a coach, yet.</p>
-        <% else %>
-          <% @coachee_bookings.each do | booking | %>
-            <div class="card-product">
-              <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
-              <div class="card-product-infos flex-grow-1">
-                <p><strong>Date: <%= booking.datetime %></strong></p>
-                <p><strong>Offer: </strong><%= booking.coaching_offer.title %></p>
-                <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
-                <p><strong>Coach name: </strong><%= booking.coaching_offer.user.first_name %> <%=booking.coaching_offer.user.last_name%></p>
-                <p><strong>Skill: </strong><%= booking.coaching_offer.skill %></p>
-                <p><strong>Comment: </strong><%= booking.comment %></p>
-                <div class="flex-grow-1 text-end">
-                  <%= link_to "Edit Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
-                  <%= link_to "Delete Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+        <div class="pending-req-coach-perspective">
+          <h3 class="mt-5">Accept your pending requests and start helping others:</h3>
+          <div class="mt-5">
+            <% if @coach_bookings.empty? %>
+              <p>You have no pending requests to accept!</p>
+            <% else %>
+              <% @coach_bookings.each do | booking | %>
+                <div class="card-product">
+                  <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
+                  <div class="card-product-infos flex-grow-1">
+                    <h2>Date: <%= booking.datetime %></h2>
+                    <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
+                    <p><strong>Potential Earnings:</strong>  US$ <%= booking.duration * booking.coaching_offer.price %>.00</p>
+                    <p><strong>Request from: </strong><%= booking.user.first_name %> <%=booking.user.last_name%></p>
+                    <p><strong>Offer Ref: </strong><%= booking.coaching_offer.title %></p>
+                    <p><strong>Skill: </strong><%= booking.coaching_offer.skill %></p>
+                    <div class="flex-grow-1 text-end">
+                      <%= link_to "✉️", booking.coaching_offer.user.email, class: "btn-ghost a-btn ms-2" %>
+                      <%= link_to "Reject Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+                      <%= link_to "Accept Request", dashboard_path, class: "btn-flat a-btn ms-2" %>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              <% end %>
+            <% end %>
             </div>
-          <% end %>
-        <% end %>
-      </div>
+          </div>
+        </div>
+      <% else %>
+      <h3>You have no requests!</h3>
+      <%= link_to "Create a Coaching Offer", new_coaching_offer_path, class: "btn-flat a-btn ms-2" %>
+      <% end %>
     </div>
-  <% end %>
 
-  <% if @coachee_bookings.empty? && @coach_bookings.empty? %>
 
-    <h2>You have no bookings!</h2>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+      <% if @coachee_bookings.empty? == false %>
+
+        <div class="pending-req-student-perspective">
+          <h3 class="mt-5">You have booked the following coaching sessions:</h3>
+          <div class="mt-5">
+            <% if @coachee_bookings == [] %>
+              <p>You haven't booked a coach, yet.</p>
+              <%= link_to "Book a coach", coaching_offers_path, class: "btn-flat a-btn ms-2" %>
+            <% else %>
+              <% @coachee_bookings.each do | booking | %>
+                <div class="card-product">
+                  <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
+                  <div class="card-product-infos flex-grow-1">
+                    <p><strong>Date: <%= booking.datetime %></strong></p>
+                    <p><strong>Offer: </strong><%= booking.coaching_offer.title %></p>
+                    <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
+                    <p><strong>Coach name: </strong><%= booking.coaching_offer.user.first_name %> <%=booking.coaching_offer.user.last_name%></p>
+                    <p><strong>Skill: </strong><%= booking.coaching_offer.skill %></p>
+                    <p><strong>Comment: </strong><%= booking.comment %></p>
+                    <div class="flex-grow-1 text-end">
+                      <%= link_to "Edit Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+                      <%= link_to "Delete Request", dashboard_path, class: "btn-ghost a-btn ms-2" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+      <h3>You have no requests!</h3>
+        <%= link_to "Book a coach", coaching_offers_path, class: "btn-flat a-btn ms-2" %>
+      <% end %>
+    </div>
+  </div>
+  <%# <% if @coachee_bookings.empty? && @coach_bookings.empty? %>
+
+    <%# <h2>You have no bookings!</h2> %>
     <%# add buttons: create a coaching offer or book a coach %>
-  <% end %>
+  <%# end %>
 
 
 
