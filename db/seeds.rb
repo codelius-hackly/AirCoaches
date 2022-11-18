@@ -8,6 +8,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Destroying existing Data..."
+ActiveStorage::Attachment.all.each(&:purge)
 Booking.destroy_all
 CoachingOffer.destroy_all
 User.destroy_all

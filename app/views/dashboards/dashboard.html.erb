@@ -1,8 +1,6 @@
-
 <div class="container mt-5">
   <h1>Hello, <%= current_user.first_name %>! </h1>
 
-<%# if the user has made any caoching offers, then show this below: %>
   <% if @coach_bookings.empty? == false %>
 
     <div class="pending-req-coach-perspective">
@@ -35,7 +33,7 @@
   <% end %>
 
   <% if @coachee_bookings.empty? == false %>
-<%# if the user has made any booking then show the code below: %>
+
     <div class="pending-req-student-perspective">
       <h2 class="mt-5">Your pending requests:</h2>
       <div class="mt-5">
@@ -66,22 +64,13 @@
       <%# @bookings.each do |booking| %>
       </div>
     </div>
-<% end %>
+  <% end %>
 
-<% if @coachee_bookings.empty? && @coach_bookings.empty? %>
-<%# if user has no bookings and no coaching offers show this: %>
-  <h2>You have no bookings</h2>
-  <%# add buttons: create a coaching offer or book a coach %>
-<% end %>
+  <% if @coachee_bookings.empty? && @coach_bookings.empty? %>
 
-
-
-
-
-
-
-
-
+    <h2>You have no bookings</h2>
+    <%# add buttons: create a coaching offer or book a coach %>
+  <% end %>
 
 
 

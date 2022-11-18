@@ -28,9 +28,12 @@
     </div>
 
     <div class="form-actions sign-up-btn">
-      <%= f.button :submit, "Sign up", class: "btn-flat" %>
+      <%= f.button :submit, "Sign up now", class: "btn-flat" %>
     </div>
   <% end %>
+  <div class="form-actions sign-up-btn mt-2">
+    <%= link_to "Already signed up?", new_user_session_path, class: "btn btn-ghost" %>
+  </div>
 </div>
 
 <%= render "devise/shared/links" %>

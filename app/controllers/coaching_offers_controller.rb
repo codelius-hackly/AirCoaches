@@ -1,7 +1,18 @@
 class CoachingOffersController < ApplicationController
+  def index
+    query = params[:query]
+    if query.present?
+      @coaching_offers = CoachingOffer.search_by_title_description_skill(query)
+    else
+      @coaching_offers = CoachingOffer.all
+    end
+  end
+
   def show
     @coaching_offer = CoachingOffer.find(params[:id])
+    @coaching_offers = CoachingOffer.where(user: @coaching_offer.user).excluding(@coaching_offer)
     @booking = Booking.new
+    @offer_reviews = @coaching_offer.reviews
   end
 
   def new

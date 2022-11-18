@@ -1,0 +1,18 @@
+<div class="container container-conf">
+  <div class="confirmation-info">
+    <div class="confirmation-text">
+      <h1>Help is on the way! 🎉🎉</h1>
+      <p>We have received your booking request and will let you know once the coach has accepted.</p>
+    </div>
+
+    <div class="confirm-buttons">
+      <%= link_to "View your bookings", dashboard_path, class: "btn btn-ghost btn-salmon" %>
+      <br>
+      <%= link_to "Back to the offer", coaching_offer_path, class: "btn btn-ghost" %>
+    </div>
+  </div>
+
+  <div class="confirmation-img">
+    <%= image_tag "illustrations/undraw_team_up_re_84ok.svg", alt: "text", class: "image-confirmation"%>
+  </div>
+</div>
