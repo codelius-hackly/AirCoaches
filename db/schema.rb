@@ -88,7 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_050432) do
     t.string "first_name"
     t.string "last_name"
     t.text "profile_description"
-    t.string "skills"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
