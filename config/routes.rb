@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   resources :coaching_offers, only: [:index, :show, :new, :create] do
     resources :bookings, except: :show
   end
-  
-  resources :bookings, only: [:show] do
+
+  resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :reviews, only: [:new, :create]
   end
+
+  # resources :dashboard, only: [:show] do
+  #   resources :bookings, only: [:edit, :update, :destroy]
+  # end
+
 end
