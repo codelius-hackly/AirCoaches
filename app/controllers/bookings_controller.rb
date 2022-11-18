@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  # before_action :set_booking
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   #read
 
@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   #create
@@ -23,6 +22,21 @@ class BookingsController < ApplicationController
     else
       render "coaching_offers/show", status: :unprocessable_entity
     end
+  end
+
+  #update
+  def edit
+  end
+
+  def update
+    @booking.update(booking_params)
+    redirect_to dashboard_path(@booking)
+  end
+
+  #delete
+  def destroy
+    @booking.destroy
+    redirect_to dashboard_url, notice: "The booking was deleted."
   end
 
   private
