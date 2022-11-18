@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :status]
 
   #read
 
@@ -38,6 +38,13 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to dashboard_url, notice: "The booking was deleted."
   end
+
+  def status
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to dashboard_path
+  end
+
 
   private
 

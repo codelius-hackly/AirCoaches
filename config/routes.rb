@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'dashboard', to: 'dashboards#dashboard', as: 'dashboard'
 
+  patch 'status/:id', to: 'bookings#status', as: 'status'
+
   resources :coaching_offers, only: [:index, :show, :new, :create] do
     resources :bookings, except: :show
   end
