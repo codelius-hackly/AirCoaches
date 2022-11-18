@@ -36,3 +36,21 @@
 .a-btn {
   text-decoration: none;
 }
+
+.btn-salmon {
+  color: $alm-white;
+  border: 1px solid $pri-salmon;
+  background: $pri-salmon;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: normal;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  font-family: $h3-font;
+}
+
+.btn-salmon:hover {
+  opacity: 1;
+  color: $pri-salmon;
+  background: $sec-salmon;
+}
