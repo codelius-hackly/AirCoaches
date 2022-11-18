@@ -20,7 +20,7 @@
                 <div class="card-product">
                   <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
                   <div class="card-product-infos flex-grow-1">
-                    <h2>Date: <%= booking.datetime %></h2>
+                    <h2>Date: <%= booking.datetime.strftime("%d %b %Y, %H:%M") %></h2>
                     <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
                     <p><strong>Potential Earnings:</strong>  US$ <%= booking.duration * booking.coaching_offer.price %>.00</p>
                     <p><strong>Request from: </strong><%= booking.user.first_name %> <%=booking.user.last_name%></p>
@@ -62,7 +62,7 @@
                 <div class="card-product">
                   <%= image_tag "skills/#{booking.coaching_offer.skill}.png", alt: "#{booking.coaching_offer.skill} Logo" %>
                   <div class="card-product-infos flex-grow-1">
-                    <p><strong>Date: <%= booking.datetime %></strong></p>
+                    <p><strong>Date: <%= booking.datetime.strftime("%d %b %Y, %H:%M") %></strong></p>
                     <p><strong>Offer: </strong><%= booking.coaching_offer.title %></p>
                     <p><strong>Coaching hours: </strong><%= booking.duration %> h</p>
                     <p><strong>Coach name: </strong><%= booking.coaching_offer.user.first_name %> <%=booking.coaching_offer.user.last_name%></p>
