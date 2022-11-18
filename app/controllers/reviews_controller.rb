@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     if @review.save
       flash[:notice] = "Review created successfully"
-      redirect_to booking_path(@booking)
+      redirect_to coaching_offer_path(@booking.coaching_offer)
     end
   end
 
