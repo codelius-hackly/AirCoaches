@@ -21,8 +21,12 @@
           </div>
           <div class="rating_price">
             <div class="rating">
-              <% @coaching_offer.rating.floor.times do %>
-                <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+              <% if @coaching_offer.rating %>
+                <% @coaching_offer.rating.floor.times do %>
+                  <%= image_tag "star.png", alt: "alttext", class: "star-rating" %>
+                <% end %>
+              <% else %>
+                <small>No ratings yet.</small>
               <% end %>
             </div>
             <div class="price-offer">
