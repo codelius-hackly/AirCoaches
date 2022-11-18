@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @coaching_offer = @booking.coaching_offer
     @review = Review.new
+    # render "reviews/new", status: :unprcessable_entity
   end
 
   def create
