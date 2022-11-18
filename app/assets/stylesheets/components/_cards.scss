@@ -1,7 +1,7 @@
 // ******************* Card offer ************************
 
 .offer_card {
-  background-color: $sec-salmon;
+  background-color: $white;
   width: -webkit-fill-available;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 .img_info {
-  margin: 15px;
+  padding: 15px;
   height: 150px;
   display: flex;
   justify-content: space-around;
@@ -26,7 +26,6 @@
 }
 
 .full-name {
-  text-align: center;
   font-size: 30px;
   font-weight: bold;
   font-family: $h3-font;
@@ -37,9 +36,6 @@
   font-family: $headers-font;
   color: $sec-teal;
   font-weight: bold;
-  background-color: $alm-white;
-  border-radius: 7px;
-  padding: 5px;
 }
 
 .rating_price {
@@ -47,15 +43,12 @@
   justify-content: space-between;
   color: $sec-teal;
   font-weight: bold;
-  padding: 0 10px;
 }
 
 .offer_description {
-  margin: 0 25px 25px 25px;
   height: 200px;
-  border-radius: 10px;
-  background-color: $alm-white;
-  padding: 10px;
+  padding: 20px 40px 20px 40px;
+  border-top: 1px solid $pri-salmon;
 }
 
 .profile-image {
@@ -64,8 +57,21 @@
   align-items: center;
 }
 
+.skill-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+}
+
 .profile-image > img {
   width: 150px;
+  height: 150px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
